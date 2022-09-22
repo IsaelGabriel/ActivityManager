@@ -53,6 +53,7 @@ class Task:
     def claim_task(self,user):
         if not self.valid: return
         self.values["assigned_to"] = user
+        self.update_goal()
 
     def update_goal(self):
         v = json.load(open("scripts/tasks.json", "r"))
