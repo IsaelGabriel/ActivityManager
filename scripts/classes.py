@@ -43,6 +43,7 @@ class Task:
         st.subheader(self.values["label"])
         st.write(f'**End date:** {self.values["completion_date"]}')
         st.write(self.values["description"])
+        st.write(f'**Reward**: {self.values["reward"]}.')
     
     def update_goal(self,quantity):
         v = json.load(open("scripts/tasks.json", "r"))
