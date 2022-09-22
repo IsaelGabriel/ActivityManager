@@ -37,10 +37,3 @@ else:
 
 if st.button("rerun"):
     st.experimental_rerun()
-    st.session_state['tasks']['test_02'] = {
-        "label" : "Limpar chão 23/09 (sexta)",
-        "completion_date" : "23/09/2022",
-        "description" : "",
-        "assigned_to" : None,
-        "reward" : "3 dias de férias pagas"
-    }

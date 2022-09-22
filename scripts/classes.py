@@ -1,5 +1,14 @@
 import json
 
+def add_reward(label,task,st):
+    info = {
+        "label" : label,
+        "task" : task
+    }
+    if "rewards" not in st.session_state:
+        st.session_state['rewards'] = [info]
+    else: st.session_state['rewards'].append(info)
+
 class Goal:
     def __init__(self,g_id,st):
         v = st.session_state['goals']
@@ -61,8 +70,7 @@ class Task:
     
     def finish_task(self,user,st):
         if "reward" in self.values.keys():
-            if "rewards" not in st.session_state: st.session_state['rewards'] = [self.values['reward']]
-            else: st.session_state['rewards'].append(self.values['reward'])
+            add_reward(self.values['reward'],self.values['label'])
         if "reward_goals_id" in self.values.keys():
             if "goals" in st.session_state:
                 for i in range(0,len(self.values['reward_goals_id'])):
