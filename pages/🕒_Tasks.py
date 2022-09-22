@@ -10,9 +10,9 @@ open_tasks,user_tasks = [],[]
 for k in tasks.keys():
     t = tasks[k]["assigned_to"] 
     if  t == user:
-        user_tasks.append(Task(k))
+        user_tasks.append(Task(k,user))
     elif t == None:
-        open_tasks.append(Task(k))
+        open_tasks.append(Task(k,user))
 
 st.header("User Tasks")
 
