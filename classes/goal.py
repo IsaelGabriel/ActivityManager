@@ -14,7 +14,7 @@ class Goal:
         if not self.valid: return
         st.subheader(self.values["label"])
         prog = float(float(float(self.values["current"])/float(self.values["max"])) * 100.0)
-        st.progress()
+        st.progress(prog)
         st.write(self.values["description"])
     
     def update_goal(self,quantity):
