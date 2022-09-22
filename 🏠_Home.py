@@ -11,7 +11,7 @@ st.set_page_config(
 )
 
 # check jsons
-json_list = ['goals','tasks']
+json_list = ['goals','tasks','rewards']
 for json_name in json_list:
     if json_name not in st.session_state:
         st.session_state[json_name] = json.load(open(f"scripts/{json_name}.json", "r"))
