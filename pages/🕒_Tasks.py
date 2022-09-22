@@ -29,3 +29,5 @@ if len(open_tasks) > 0:
         task.get_card(st=st)
 else:
     st.markdown("_No tasks available at the moment._")
+
+if st.button("rerun"): st.experimental_rerun()
