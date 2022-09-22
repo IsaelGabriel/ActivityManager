@@ -13,7 +13,7 @@ class Goal:
     def get_card(self,st):
         if not self.valid: return
         st.subheader(self.values["label"])
-        prog = float(float(float(self.values["current"])/float(self.values["max"])) * 100.0)
+        prog = int(float(float(self.values["current"])/float(self.values["max"])) * 100.0)
         st.progress(prog)
         st.write(self.values["description"])
     
