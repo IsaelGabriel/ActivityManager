@@ -12,8 +12,9 @@ st.header("Rewards")
 
 if len(rewards) > 0:
     for reward in rewards:
-        st.write(f'Reward:{reward["label"]}')
-        st.write(f'From task:{reward["task"]}')   
+        st.markdown(f'**Reward: {reward["label"]}**')
+        st.write(f'From task: {reward["task"]}')
+        st.write("")
 else:
     st.markdown("_You have no rewards at the moment._")
 
