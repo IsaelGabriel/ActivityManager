@@ -16,7 +16,8 @@ class Goal:
         col1, col2 = st.columns(2)
         prog = int(float(float(self.values["current"])/float(self.values["max"])) * 100.0)
         col1.progress(prog)
-        col2.write(str(prog) + "%")
+        quant  = f'{self.values["current"]} / {self.values["max"]} {self.values["currency"]} ({prog})'
+        col2.write(quant)
         st.write(self.values["description"])
     
     def update_goal(self,quantity):

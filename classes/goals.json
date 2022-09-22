@@ -7,6 +7,16 @@
         "max" : 15,
         "currency" : "projetos concluidos",
         "description" : ""
+    },
+
+    "test_02" :
+    {
+        "label": "Test Team Goal",
+        "type" : "team",
+        "current" : 5,
+        "max" : 500,
+        "currency" : "clientes satisfeitos",
+        "description" : ""
     }
 
 

@@ -1,6 +1,6 @@
 import streamlit as st
+import json
 from classes.goal import Goal
-
 
 st.set_page_config(
     page_title = "Activity Manager",
@@ -10,10 +10,22 @@ st.set_page_config(
     menu_items = None
 )
 
-st.title("Activity Manager")
+goals = json.load(open("classes/goals.json", "r"))
+solo_goals, team_goals = []
+
+for k in goals.keys():
+    t = goals[k]["type"] 
+    if  t == "solo":
+        solo_goals.append(Goal(k))
+    elif t == "team":
+        team_goals.append(Goal(k))
+
 st.header("Suas metas")
 
-solo_goal = Goal("test_01")
-solo_goal.get_card(st=st)
+for goal in solo_goals:
+    goal.get_card(st=st)
 
 st.header("Metas coletivas")
+
+for goal in team_goals:
+    goal.get_card(st=st)
