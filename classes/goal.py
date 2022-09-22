@@ -2,7 +2,7 @@ import json
 
 class Goal:
     def __init__(self,g_id):
-        v = json.loads("../json/goals.json")
+        v = json.loads("json/goals.json")
         self.g_id = g_id
         if g_id in v.keys():
             self.values = v[g_id]
