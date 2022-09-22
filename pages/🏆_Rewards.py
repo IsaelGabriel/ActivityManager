@@ -4,7 +4,7 @@ user = "jorge"
 
 rewards = []
 if 'rewards' not  in st.session_state:
-    st.session_state = json.load(open("scripts/rewards.json","r"))
+    st.session_state['rewards'] = json.load(open("scripts/rewards.json","r"))
 rewards = st.session_state['rewards']
 
 
@@ -16,6 +16,6 @@ if len(rewards) > 0:
         st.write(f"From task:{reward['task']}")
 else:
     st.markdown("_You have no rewards at the moment.")
-    
+
 if st.button("rerun"):
     st.experimental_rerun()
