@@ -44,6 +44,8 @@ class Task:
         st.write(f'**End date:** {self.values["completion_date"]}')
         st.write(self.values["description"])
         st.write(f'**Reward**: {self.values["reward"]}.')
+        if self.values['assigned_to'] == None:
+            st.button("Claim")
     
     def update_goal(self,quantity):
         v = json.load(open("scripts/tasks.json", "r"))

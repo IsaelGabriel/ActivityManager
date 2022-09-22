@@ -28,4 +28,4 @@ if len(open_tasks) > 0:
     for task in open_tasks:
         task.get_card(st=st)
 else:
-    st.markdown("_No tasks available at the moment_.")
+    st.markdown("_No tasks available at the moment._")
