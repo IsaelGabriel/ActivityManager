@@ -20,7 +20,7 @@ if len(user_tasks) > 0:
     for task in user_tasks:
         task.get_card(st=st)
 else:
-    st.latex("You have claimed no tasks")
+    st.markdown('_You have claimed no tasks._')
 
 st.header("Available Tasks")
 
@@ -28,4 +28,4 @@ if len(open_tasks) > 0:
     for task in open_tasks:
         task.get_card(st=st)
 else:
-    st.latex("No tasks available at the moment")
+    st.markdown("_No tasks available at the moment_.")
