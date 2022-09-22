@@ -2,7 +2,7 @@ import json
 
 class Goal:
     def __init__(self,g_id):
-        v = json.load(open("classes/goals.json", "r"))
+        v = json.load(open("scripts/goals.json", "r"))
         self.g_id = g_id
         if g_id in v.keys():
             self.valid = True
@@ -21,7 +21,7 @@ class Goal:
         st.write(self.values["description"])
     
     def update_goal(self,quantity):
-        v = json.load(open("classes/goals.json", "r"))
+        v = json.load(open("scripts/goals.json", "r"))
         self.values["current"] += quantity
         #v[self.g_id] = self.values
         v.update(self.values)

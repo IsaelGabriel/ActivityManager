@@ -10,7 +10,7 @@ st.set_page_config(
     menu_items = None
 )
 
-#st.write("test string\n ignore pls")
+st.write(f"test string\n ignore pls")
 
 
 goals = json.load(open("scripts/goals.json", "r"))
