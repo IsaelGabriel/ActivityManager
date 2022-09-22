@@ -46,7 +46,7 @@ class Task:
         st.write(self.values["description"])
         st.write(f'**Reward**: {self.values["reward"]}.')
         if self.values['assigned_to'] == None:
-            if st.button("Claim"): claim_task(self.user)
+            if st.button("Claim"): self.claim_task(self.user)
 
     def claim_task(self,user):
         if not self.valid: return
