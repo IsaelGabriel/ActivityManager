@@ -5,6 +5,7 @@ class Goal:
         v = json.load(open("classes/goals.json", "r"))
         self.g_id = g_id
         if g_id in v.keys():
+            self.valid = True
             self.values = v[g_id]
         else:
             self.valid = False
