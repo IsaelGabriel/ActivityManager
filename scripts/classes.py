@@ -42,8 +42,8 @@ class Task:
     def get_card(self,st):
         if not self.valid: return
         with st.container():
-            st.subheader(self.values["label"])
-            with st.expander():
+            #st.subheader(self.values["label"])
+            with st.expander(self.values["label"]):
                 st.write(f'**End date:** {self.values["completion_date"]}')
                 st.write(self.values["description"])
                 st.write(f'**Reward**: {self.values["reward"]}.')
