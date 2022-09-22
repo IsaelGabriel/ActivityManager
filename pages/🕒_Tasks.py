@@ -5,7 +5,7 @@ from scripts.classes import Task
 user = "jorge"
 
 tasks = json.load(open("scripts/tasks.json", "r"))
-open_tasks,user_tasks = [][]
+open_tasks,user_tasks = [],[]
 
 for k in tasks.keys():
     t = tasks[k]["assigned_to"] 
