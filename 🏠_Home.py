@@ -3,10 +3,9 @@ import streamlit as st
 from classes.goal import Goal
 
 st.title("Activity Manager")
-st.header("Metas")
-st.subheader("Suas metas")
+st.header("Suas metas")
 
-solo_goal = Goal("test goal", "Teste feito para atribuir valor", "g_1")
+solo_goal = Goal("g_1")
 solo_goal.get_card(st=st)
 
-st.subheader("Metas coletivas")
+st.header("Metas coletivas")
