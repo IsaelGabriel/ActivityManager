@@ -8,3 +8,4 @@ solo_goal = Goal("test_01")
 solo_goal.get_card(st=st)
 
 st.header("Metas coletivas")
+st.metric('My metric', 42, 2)
