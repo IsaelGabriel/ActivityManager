@@ -12,9 +12,8 @@ class Goal:
 
     def get_card(self,st):
         if not self.valid: return
-        #st.subheader(self.values["label"])
-        #st.write(self.values["description"])
-        st.write(self.values)
+        st.subheader(self.values["label"])
+        st.write(self.values["description"])
     
     def update_goal(self,quantity):
         v = json.load(open("classes/goals.json", "r"))
