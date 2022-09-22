@@ -1,10 +1,12 @@
 import streamlit as st
-
+import json
 user = "jorge"
 
 rewards = []
-if rewards in st.session_state:
-    rewards = st.session_state['rewards']
+if 'rewards' not  in st.session_state:
+    st.session_state = json.load(open("scripts/rewards.json","r"))
+rewards = st.session_state['rewards']
+
 
 st.header("Rewards")
 
