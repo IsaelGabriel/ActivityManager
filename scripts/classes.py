@@ -1,8 +1,8 @@
 import json
 
 class Goal:
-    def __init__(self,g_id):
-        v = json.load(open("scripts/goals.json", "r"))
+    def __init__(self,g_id,st):
+        v = st.session_state['goals']
         self.g_id = g_id
         if g_id in v.keys():
             self.valid = True
@@ -20,13 +20,9 @@ class Goal:
         col2.write(quant)
         st.write(self.values["description"])
     
-    def update_goal(self,quantity):
-        v = json.load(open("scripts/goals.json", "r"))
-        self.values["current"] += quantity
-        #v[self.g_id] = self.values
-        v.update(self.values)
-        with open("goals.json", "w") as outfile:
-            json.dumsp(v,outfile)
+    def update_goal(self,quantity,st):
+        st.session_state['goals'][self.g_id]["current"] += quantity
+    
 
 class Task:
     def __init__(self,t_id,user,st):
@@ -75,3 +71,4 @@ class Task:
                     if goal_k in st.session_state['goals']:
                         st.session_state['goals'][goal_k]["current"] += score_add
         del st.session_state["tasks"][self.t_id]
+        st.experimental_rerun()
