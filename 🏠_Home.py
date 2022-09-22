@@ -11,7 +11,7 @@ st.set_page_config(
 )
 
 goals = json.load(open("classes/goals.json", "r"))
-solo_goals, team_goals = []
+solo_goals, team_goals = [],[]
 
 for k in goals.keys():
     t = goals[k]["type"] 
