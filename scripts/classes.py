@@ -41,12 +41,13 @@ class Task:
 
     def get_card(self,st):
         if not self.valid: return
-        st.subheader(self.values["label"])
-        st.write(f'**End date:** {self.values["completion_date"]}')
-        st.write(self.values["description"])
-        st.write(f'**Reward**: {self.values["reward"]}.')
-        if self.values['assigned_to'] == None:
-            if st.button("Claim"): self.claim_task(self.user)
+        with st.container():
+            st.subheader(self.values["label"])
+            st.write(f'**End date:** {self.values["completion_date"]}')
+            st.write(self.values["description"])
+            st.write(f'**Reward**: {self.values["reward"]}.')
+            if self.values['assigned_to'] == None:
+                if st.button("Claim"): self.claim_task(self.user)
 
     def claim_task(self,user):
         if not self.valid: return
