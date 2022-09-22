@@ -13,8 +13,10 @@ class Goal:
     def get_card(self,st):
         if not self.valid: return
         st.subheader(self.values["label"])
+        col1, col2 = st.columns(2)
         prog = int(float(float(self.values["current"])/float(self.values["max"])) * 100.0)
-        st.progress(prog)
+        col1.progress(prog)
+        col2.write(str(prog) + "%")
         st.write(self.values["description"])
     
     def update_goal(self,quantity):
