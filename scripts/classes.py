@@ -59,3 +59,4 @@ class Task:
         v = st.session_state['tasks']
         v[self.t_id] = self.values
         st.session_state['tasks'] = v
+        st.experimental_rerun()
