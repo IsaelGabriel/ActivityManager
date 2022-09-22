@@ -1,0 +1,13 @@
+{
+    "test_01" :
+    {
+        "label": "Test Goal",
+        "type" : "solo",
+        "current" : 2,
+        "max" : 15,
+        "currency" : "projetos concluidos",
+        "description" : ""
+    }
+
+
+}
