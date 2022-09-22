@@ -70,7 +70,7 @@ class Task:
     
     def finish_task(self,user,st):
         if "reward" in self.values.keys():
-            add_reward(self.values['reward'],self.values['label'])
+            add_reward(self.values['reward'],self.values['label'],st)
         if "reward_goals_id" in self.values.keys():
             if "goals" in st.session_state:
                 for i in range(0,len(self.values['reward_goals_id'])):

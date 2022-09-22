@@ -12,8 +12,10 @@ st.header("Rewards")
 
 if len(rewards) > 0:
     for reward in rewards:
-        st.write(f"**Reward:{reward['label']}**")
-        st.write(f"_From task:{reward['task']}._")
-
+        st.write(f"Reward:{reward['label']}")
+        st.write(f"From task:{reward['task']}")
+else:
+    st.markdown("_You have no rewards at the moment.")
+    
 if st.button("rerun"):
     st.experimental_rerun()
