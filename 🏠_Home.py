@@ -3,4 +3,6 @@
 #import the library
 import streamlit as st
 
-st.write("a")
+st.header("Metas")
+st.subheader("Suas metas")
+st.subheader("Metas do grupo")
