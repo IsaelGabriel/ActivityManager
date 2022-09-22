@@ -2,6 +2,7 @@ import streamlit as st
 
 from classes.goal import Goal
 
+st.title("Activity Manager")
 st.header("Metas")
 st.subheader("Suas metas")
 
