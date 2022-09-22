@@ -65,7 +65,7 @@ class Task:
     
     def finish_task(self,user,st):
         if "reward" in self.values.keys():
-            if "rewards" not in st.session_state: st.session_state['rewards'] = [self.values['rewards']]
+            if "rewards" not in st.session_state: st.session_state['rewards'] = [self.values['reward']]
             else: st.session_state['rewards'].append(self.values['reward'])
         if "reward_goals_id" in self.values.keys():
             if "goals" in st.session_state:
@@ -74,3 +74,4 @@ class Task:
                     score_add = self.values['reward_points'][i]
                     if goal_k in st.session_state['goals']:
                         st.session_state['goals'][goal_k]["current"] += score_add
+        del st.session_state["tasks"][self.t_id]
