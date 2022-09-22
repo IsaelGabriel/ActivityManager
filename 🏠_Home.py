@@ -22,9 +22,9 @@ solo_goals, team_goals = [],[]
 for k in goals.keys():
     t = goals[k]["type"] 
     if  t == "solo":
-        solo_goals.append(Goal(k))
+        solo_goals.append(Goal(k,st))
     elif t == "team":
-        team_goals.append(Goal(k))
+        team_goals.append(Goal(k,st))
 
 st.header("Suas metas")
 
