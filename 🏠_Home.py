@@ -10,7 +10,13 @@ st.set_page_config(
     menu_items = None
 )
 
-goals = json.load(open("scripts/goals.json", "r"))
+# check jsons
+json_list = ['goals,tasks']
+for json_name in json_list:
+    if json_name not in st.session_state:
+        st.session_state[json_name] = json.load(open(f"scripts/{json_name}.json", "r"))
+
+goals = st.session_state['goals']
 solo_goals, team_goals = [],[]
 
 for k in goals.keys():
@@ -29,3 +35,7 @@ st.header("Metas coletivas")
 
 for goal in team_goals:
     goal.get_card(st=st)
+
+if st.button("reset session"):
+    for json_name in json_list:
+        st.session_state[json_name] = json.load(open(f"scripts/{json_name}.json", "r"))

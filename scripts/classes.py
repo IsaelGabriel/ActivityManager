@@ -29,9 +29,9 @@ class Goal:
             json.dumsp(v,outfile)
 
 class Task:
-    def __init__(self,t_id,user):
+    def __init__(self,t_id,user,st):
         self.user = user
-        v = json.load(open("scripts/tasks.json", "r"))
+        v = st.session_state['tasks']
         self.t_id = t_id
         if t_id in v.keys():
             self.valid = True
@@ -48,15 +48,14 @@ class Task:
                 st.write(self.values["description"])
                 st.write(f'**Reward**: {self.values["reward"]}.')
                 if self.values['assigned_to'] == None:
-                    if st.button("Claim"): self.claim_task(self.user)
+                    if st.button("Claim"): self.claim_task(self.user,st)
 
-    def claim_task(self,user):
+    def claim_task(self,user,st):
         if not self.valid: return
         self.values["assigned_to"] = user
-        self.update_goal()
+        self.update_goal(st)
 
-    def update_goal(self):
-        v = json.load(open("scripts/tasks.json", "r"))
-        v.update(self.values)
-        with open("scripts/tasks.json", "w") as outfile:
-            json.dumsp(v,outfile)
+    def update_goal(self,st):
+        v = st.session_state['tasks']
+        v[self.t_id] = self.values
+        st.session_state['tasks'] = v
