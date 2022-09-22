@@ -5,7 +5,9 @@
         "completion_date" : "23/09/2022",
         "description" : "",
         "assigned_to" : null,
-        "reward" : "3 dias de férias pagas"
+        "reward" : "3 dias de férias pagas",
+        "reward_points" : [2],
+        "reward_goals_id" : ["test_02"]
     }
 
 }

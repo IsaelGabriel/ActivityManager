@@ -49,14 +49,28 @@ class Task:
                 st.write(f'**Reward**: {self.values["reward"]}.')
                 if self.values['assigned_to'] == None:
                     if st.button("Claim"): self.claim_task(self.user,st)
+                else:
+                    if st.button("Done"): self.finish_task(self.user,st)
 
     def claim_task(self,user,st):
         if not self.valid: return
         self.values["assigned_to"] = user
-        self.update_goal(st)
+        self.update_task(st)
 
-    def update_goal(self,st):
+    def update_task(self,st):
         v = st.session_state['tasks']
         v[self.t_id] = self.values
         st.session_state['tasks'] = v
         st.experimental_rerun()
+    
+    def finish_task(self,user,st):
+        if "reward" in self.values.keys():
+            if "rewards" not in st.session_state: st.session_state['rewards'] = [self.values['rewards']]
+            else: st.session_state['rewards'].append(self.values['reward'])
+        if "reward_goals_id" in self.values.keys():
+            if "goals" in st.session_state:
+                for i in range(0,len(self.values['reward_goals_id'])):
+                    goal_k = self.values['reward_goals_id'][i]
+                    score_add = self.values['reward_points'][i]
+                    if goal_k in st.session_state['goals']:
+                        st.session_state['goals'][goal_k]["current"] += score_add
