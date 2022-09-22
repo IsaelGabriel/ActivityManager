@@ -4,7 +4,12 @@ from scripts.classes import Task
 
 user = "jorge"
 
-tasks = json.load(open("scripts/tasks.json", "r"))
+tasks = None
+if 'tasks' in st.session_state:
+    tasks = st.session_state['tasks']
+else:
+    tasks = json.load(open("scripts/tasks.json", "r"))
+
 open_tasks,user_tasks = [],[]
 
 for k in tasks.keys():
