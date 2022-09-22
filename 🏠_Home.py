@@ -1,6 +1,6 @@
 import streamlit as st
 import json
-from classes.goal import Goal
+from scripts.classes import Goal
 
 st.set_page_config(
     page_title = "Activity Manager",
@@ -10,7 +10,10 @@ st.set_page_config(
     menu_items = None
 )
 
-goals = json.load(open("classes/goals.json", "r"))
+st.write("test string\n ignore pls")
+
+
+goals = json.load(open("scripts/goals.json", "r"))
 solo_goals, team_goals = [],[]
 
 for k in goals.keys():
