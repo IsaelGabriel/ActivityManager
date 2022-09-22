@@ -1,1 +1,11 @@
-{}
+{
+    "test_task_00":
+    {
+        "label" : "Limpar chão 23/09 (sexta)",
+        "completion_date" : "23/09/2022",
+        "description" : "",
+        "assigned_to" : null,
+        "reward" : "3 dias de férias pagas"
+    }
+
+}

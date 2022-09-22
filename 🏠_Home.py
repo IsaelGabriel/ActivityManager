@@ -10,9 +10,6 @@ st.set_page_config(
     menu_items = None
 )
 
-st.write(f"test string\n ignore pls")
-
-
 goals = json.load(open("scripts/goals.json", "r"))
 solo_goals, team_goals = [],[]
 
