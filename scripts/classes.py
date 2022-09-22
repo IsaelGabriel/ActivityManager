@@ -43,11 +43,12 @@ class Task:
         if not self.valid: return
         with st.container():
             st.subheader(self.values["label"])
-            st.write(f'**End date:** {self.values["completion_date"]}')
-            st.write(self.values["description"])
-            st.write(f'**Reward**: {self.values["reward"]}.')
-            if self.values['assigned_to'] == None:
-                if st.button("Claim"): self.claim_task(self.user)
+            with st.expander():
+                st.write(f'**End date:** {self.values["completion_date"]}')
+                st.write(self.values["description"])
+                st.write(f'**Reward**: {self.values["reward"]}.')
+                if self.values['assigned_to'] == None:
+                    if st.button("Claim"): self.claim_task(self.user)
 
     def claim_task(self,user):
         if not self.valid: return
