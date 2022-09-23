@@ -12,8 +12,7 @@ st.set_page_config(
 acc_options = ['Administrador','Funcionário']
 acc_current = 1
 if 'acc' in st.session_state: acc_current = acc_options.index(st.session_state['acc'])
-choice = st.sidebar.selectbox(label='Account',options=['Administrador','Funcionário'],index=acc_current)
-st.session_state['acc'] = choice
+st.session_state['acc'] = st.sidebar.selectbox(label='Account',options=['Administrador','Funcionário'],index=acc_current)
 
 # check jsons
 json_list = ['goals','tasks','rewards']
