@@ -45,4 +45,5 @@ if st.session_state['acc'] == "Administrador":
         for json_name in json_list:
             st.session_state[json_name] = json.load(open(f"scripts/{json_name}.json", "r"))
         st.session_state['acc'] = "Funcionário"
+        st.experimental_rerun()
 if st.button("rerun"): st.experimental_rerun()
