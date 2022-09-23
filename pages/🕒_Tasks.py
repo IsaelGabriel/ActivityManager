@@ -56,7 +56,7 @@ if user == "Administrador":
             "completion_date" : g_date,
             "description" : g_desc,
             "reward" : g_reward,
-            "assigned_to" : None,
+            'assigned_to' : None,
             "reward_points" : [2],
             "reward_goals_id" : ["test_02"]
         }

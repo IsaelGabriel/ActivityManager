@@ -59,7 +59,7 @@ class Task:
 
     def claim_task(self,user,st):
         if not self.valid: return
-        self.values["assigned_to"] = user
+        self.values['assigned_to'] = user
         self.update_task(st)
 
     def update_task(self,st):
