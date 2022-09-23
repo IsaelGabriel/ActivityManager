@@ -17,10 +17,14 @@ rewards = st.session_state['rewards']
 st.header("Rewards")
 
 if len(rewards) > 0:
+    r_id = 0
     for reward in rewards:
         st.markdown(f'**Reward: {reward["label"]}**')
         st.write(f'From task: {reward["task"]}')
         st.write("")
+        if st.button("Reward claimed",(f"reward_claim_{r_id}")):
+            rewards.remove(reward)
+            st.experimental_rerun()
 else:
     st.markdown("_You have no rewards at the moment._")
 
