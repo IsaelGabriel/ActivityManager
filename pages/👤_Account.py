@@ -1,6 +1,5 @@
 import streamlit as st
 import json
-import scripts.firebase_handler as fb
 
 choice = st.selectbox('login/signup',['Login','Sign up'])
 
