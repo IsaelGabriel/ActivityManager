@@ -19,7 +19,7 @@ st.header("Rewards")
 if len(rewards) > 0:
     r_id = 0
     for reward in rewards:
-        with st.expander(f'**Reward: {reward["label"]}**'):
+        with st.expander(str(reward["label"])):
             # st.markdown(f'**Reward: {reward["label"]}**')
             st.write(f'From task: {reward["task"]}')
             st.write("")
