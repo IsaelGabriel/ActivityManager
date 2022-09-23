@@ -55,7 +55,8 @@ if user == "Administrador":
             "label" : g_label,
             "completion_date" : g_date,
             "description" : g_desc,
-            "reward" : g_reward
+            "reward" : g_reward,
+            "assigned_to" : None
         }
 
 # # # # # #
