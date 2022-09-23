@@ -9,9 +9,8 @@ st.set_page_config(
     initial_sidebar_state = "auto",
     menu_items = None
 )
-acc_index = 1
-if 'acc' in st.session_state: acc_index = st.session_state['acc']
-choice = st.sidebar.selectbox(label='Account',options=['Administrador','Funcionário'],index=acc_index)
+choice = st.sidebar.selectbox(label='Account',options=['Administrador','Funcionário'])
+if 'acc' in st.session_state: choice.index = st.session_state['acc']
 st.session_state['acc'] = choice.index
 
 # check jsons
