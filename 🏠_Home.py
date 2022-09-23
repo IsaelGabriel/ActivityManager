@@ -43,4 +43,5 @@ for goal in team_goals:
 if st.button("reset session"):
     for json_name in json_list:
         st.session_state[json_name] = json.load(open(f"scripts/{json_name}.json", "r"))
+    st.session_state['acc'] = "Funcionário"
 if st.button("rerun"): st.experimental_rerun()
