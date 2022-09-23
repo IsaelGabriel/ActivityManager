@@ -9,36 +9,56 @@ st.session_state['acc'] = st.sidebar.selectbox(label='Account',options=['Adminis
 
 user = st.session_state['acc']
 
-tasks = None
-if 'tasks' in st.session_state:
-    tasks = st.session_state['tasks']
-else:
-    tasks = json.load(open("scripts/tasks.json", "r"))
+if user == "Funcionário":
 
-open_tasks,user_tasks = [],[]
+    tasks = None
+    if 'tasks' in st.session_state:
+        tasks = st.session_state['tasks']
+    else:
+        tasks = json.load(open("scripts/tasks.json", "r"))
 
-for k in tasks.keys():
-    t = tasks[k]["assigned_to"] 
-    if  t == user:
-        user_tasks.append(Task(k,user,st))
-    elif t == None:
-        open_tasks.append(Task(k,user,st))
+    open_tasks,user_tasks = [],[]
 
-st.header("User Tasks")
+    for k in tasks.keys():
+        t = tasks[k]["assigned_to"] 
+        if  t == user:
+            user_tasks.append(Task(k,user,st))
+        elif t == None:
+            open_tasks.append(Task(k,user,st))
 
-if len(user_tasks) > 0:
-    for task in user_tasks:
-        task.get_card(st=st)
-else:
-    st.markdown('_You have claimed no tasks._')
+    st.header("User Tasks")
 
-st.header("Available Tasks")
+    if len(user_tasks) > 0:
+        for task in user_tasks:
+            task.get_card(st=st)
+    else:
+        st.markdown('_You have claimed no tasks._')
 
-if len(open_tasks) > 0:
-    for task in open_tasks:
-        task.get_card(st=st)
-else:
-    st.markdown("_No tasks available at the moment._")
+    st.header("Available Tasks")
+
+    if len(open_tasks) > 0:
+        for task in open_tasks:
+            task.get_card(st=st)
+    else:
+        st.markdown("_No tasks available at the moment._")
+# Add tasks
+
+if user == "Administrador":
+    st.header("Adicionar meta")
+    g_id = st.text_input("Task_id: ")
+    g_label = st.text_input("Task name: ")
+    g_date = st.text_input("Date: ")
+    g_desc = st.text_input("Description: ")
+    g_reward = st.text_input("Reward: ")
+    if st.button("Publish task"):
+        st.session_state['tasks'][g_id] = {
+            "label" : g_label,
+            "completion_date" : g_date,
+            "description" : g_desc,
+            "reward" : g_reward
+        }
+
+# # # # # #
 
 if st.button("rerun"):
     st.experimental_rerun()
