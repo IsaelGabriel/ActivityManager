@@ -9,7 +9,10 @@ st.set_page_config(
     initial_sidebar_state = "auto",
     menu_items = None
 )
-choice = st.sidebar.selectbox('Account',['Administrador','Funcionário'])
+acc_index = 1
+if 'acc' in st.session_state: acc_index = st.session_state['acc']
+choice = st.sidebar.selectbox('Account',['Administrador','Funcionário'],acc_index)
+st.session_state['acc'].index = choice.index
 
 # check jsons
 json_list = ['goals','tasks','rewards']
@@ -40,4 +43,5 @@ for goal in team_goals:
 if st.button("reset session"):
     for json_name in json_list:
         st.session_state[json_name] = json.load(open(f"scripts/{json_name}.json", "r"))
+        del st.session_state['acc']
 if st.button("rerun"): st.experimental_rerun()
