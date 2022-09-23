@@ -10,7 +10,7 @@ st.set_page_config(
     menu_items = None
 )
 acc_options = ['Administrador','Funcionário']
-acc_current = 1
+acc_current = 0
 if 'acc' in st.session_state: acc_current = acc_options.index(st.session_state['acc'])
 st.session_state['acc'] = st.sidebar.selectbox(label='Account',options=['Administrador','Funcionário'],index=acc_current)
 
