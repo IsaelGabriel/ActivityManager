@@ -1,8 +1,12 @@
 import streamlit as st
 import json
 
-choice = st.sidebar.selectbox('Account',['Administrador','Funcionário'])
-user = "jorge"
+acc_options = ['Administrador','Funcionário']
+acc_current = 1
+if 'acc' in st.session_state: acc_current = acc_options.index(st.session_state['acc'])
+st.session_state['acc'] = st.sidebar.selectbox(label='Account',options=['Administrador','Funcionário'],index=acc_current)
+
+user = st.session_state['acc']
 
 rewards = []
 if 'rewards' not  in st.session_state:
