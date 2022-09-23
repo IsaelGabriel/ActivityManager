@@ -10,8 +10,8 @@ st.set_page_config(
     menu_items = None
 )
 choice = st.sidebar.selectbox(label='Account',options=['Administrador','Funcionário'])
-# if 'acc' in st.session_state: choice.index = st.session_state['acc']
-st.session_state['acc'] = choice.index
+if 'acc' in st.session_state: choice = st.session_state['acc']
+st.session_state['acc'] = choice
 
 # check jsons
 json_list = ['goals','tasks','rewards']
