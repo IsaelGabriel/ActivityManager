@@ -2,6 +2,7 @@ import streamlit as st
 import json
 from scripts.classes import Task
 
+choice = st.sidebar.selectbox('Account',['Administrador','Funcionário'])
 user = "jorge"
 
 tasks = None

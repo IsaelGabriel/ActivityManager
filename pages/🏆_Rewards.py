@@ -1,5 +1,7 @@
 import streamlit as st
 import json
+
+choice = st.sidebar.selectbox('Account',['Administrador','Funcionário'])
 user = "jorge"
 
 rewards = []

@@ -9,6 +9,7 @@ st.set_page_config(
     initial_sidebar_state = "auto",
     menu_items = None
 )
+choice = st.sidebar.selectbox('Account',['Administrador','Funcionário'])
 
 # check jsons
 json_list = ['goals','tasks','rewards']
@@ -40,6 +41,3 @@ if st.button("reset session"):
     for json_name in json_list:
         st.session_state[json_name] = json.load(open(f"scripts/{json_name}.json", "r"))
 if st.button("rerun"): st.experimental_rerun()
-
-with st.sidebar:
-    choice = st.selectbox('admin/funcionário',['Administrador','Funcionário'])
