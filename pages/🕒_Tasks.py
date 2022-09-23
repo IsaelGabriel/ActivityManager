@@ -44,7 +44,7 @@ if user == "Funcionário":
 # Add tasks
 
 if user == "Administrador":
-    st.header("Adicionar meta")
+    st.header("Add Task")
     g_id = st.text_input("Task_id: ")
     g_label = st.text_input("Task name: ")
     g_date = st.text_input("Date: ")

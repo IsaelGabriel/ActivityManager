@@ -30,12 +30,12 @@ for k in goals.keys():
     elif t == "team":
         team_goals.append(Goal(k,st))
 
-st.header("Suas metas")
+st.header("Your goals")
 
 for goal in solo_goals:
     goal.get_card(st=st)
 
-st.header("Metas coletivas")
+st.header("Collective goals")
 
 for goal in team_goals:
     goal.get_card(st=st)
